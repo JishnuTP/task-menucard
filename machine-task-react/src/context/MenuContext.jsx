@@ -30,7 +30,7 @@ const MenuProvider = ({ children }) => {
   // Fetch menu items from the server
   const fetchMenuItems = async () => {
     try {
-      const response = await axios.get('https://task-menucard-api.vercel.app/api/items/menuitems' {
+      const response = await axios.get('https://task-menucard-api.vercel.app/api/items/menuitems' ,{
         headers: {
           'Content-Type': 'application/json',
           // Include credentials if needed
