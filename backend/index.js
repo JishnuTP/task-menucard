@@ -11,7 +11,7 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin: ["https://task-menucard-frontend.vercel.app"],
+    origin: ["https://task-menucard-frontend.vercel.app/api/items"],
     methods: ["POST", "GET"],
     credentials: true
 }));
