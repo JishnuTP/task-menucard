@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('../backend/config/db');
-const itemRoutes = require('../backend/routes/items');
+const connectDB = require('./config/db'); // Adjust path as needed
+const itemRoutes = require('./routes/items'); // Adjust path as needed
 require('dotenv').config();
 
 const app = express();
@@ -11,17 +11,18 @@ connectDB();
 
 // Middleware
 app.use(cors({
-    origin:["https://task-menucard-frontend.vercel.app"],
-    methods:["POST","GET"],
-    credentials:true
+    origin: ["https://task-menucard-frontend.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true
 }));
 app.use(express.json());
 
-app.get("/",(req,res)=>{
-    res.json("hello")
-})
+// Test route
+app.get("/", (req, res) => {
+    res.json("hello");
+});
 
-// Routes
+// API Routes
 app.use('/api/items', itemRoutes);
 
 const PORT = process.env.PORT || 5000;
