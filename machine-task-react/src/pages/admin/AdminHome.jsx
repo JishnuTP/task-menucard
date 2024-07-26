@@ -1,77 +1,119 @@
-// AdminHome.jsx
+// src/pages/AdminHome.jsx
 import React, { useState } from 'react';
-import { Button, Menu, MenuItem, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Drawer, List, ListItem, ListItemText, Typography, Box, Paper, useTheme, useMediaQuery } from '@mui/material';
 import { Menu as MenuIcon } from '@mui/icons-material';
 import { useNavigate, Outlet } from 'react-router-dom';
 
 function AdminHome() {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const [isOpen, setIsOpen] = useState(false);
-
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const navigate = useNavigate();
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-    setIsOpen(true);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-    setIsOpen(false);
+  const toggleDrawer = (open) => () => {
+    setIsDrawerOpen(open);
   };
 
   const handleMenuItemClick = (path) => {
     navigate(path);
-    handleClose();
+    setIsDrawerOpen(false);
   };
 
   const Logout = () => {
-    // Clear specific items or all items from local storage
-    localStorage.removeItem('userToken'); // Example key
-    localStorage.removeItem('userData'); // Example key
-
-    // Optionally, clear all local storage
-    // localStorage.clear();
-
-    // Redirect to login or home page
-    navigate('/login'); // Adjust the path as needed
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userData');
+    navigate('/login');
   };
 
   return (
-    <div style={{ padding: '20px', maxWidth: '1200px', margin: 'auto' }}>
-      <Typography variant="h4" gutterBottom style={{ marginBottom: '20px', textAlign: 'center' }}>
-        Admin Home
-      </Typography>
-      <Button
-        aria-controls={isOpen ? 'menu' : undefined}
-        aria-haspopup="true"
-        onClick={handleClick}
-        variant="contained"
-        color="primary"
-        startIcon={<MenuIcon />}
-        style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+    <div style={{ display: 'flex', height: '100vh' }}>
+      {/* Responsive Drawer */}
+      <Drawer
+        variant={isMobile ? 'temporary' : 'permanent'}
+        open={isDrawerOpen}
+        onClose={toggleDrawer(false)}
+        sx={{
+          width: 250,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: 250,
+            boxSizing: 'border-box',
+          },
+        }}
       >
-        Menu
-      </Button>
-      <Menu
-        id="menu"
-        anchorEl={anchorEl}
-        open={isOpen}
-        onClose={handleClose}
-      >
-          <MenuItem onClick={() => handleMenuItemClick('/admin/add-category')}>Add Category</MenuItem>
-          <MenuItem onClick={() => handleMenuItemClick('/admin/add-menu')}>Add Menu</MenuItem>
-    
- 
-        <MenuItem onClick={Logout}>Logout</MenuItem>
-      </Menu>
-      <div style={{ marginTop: '20px' }}>
-        <Outlet />
+        <List>
+          <ListItem button onClick={() => handleMenuItemClick('/admin/add-category')}>
+            <ListItemText primary="Add Category" />
+          </ListItem>
+          <ListItem button onClick={() => handleMenuItemClick('/admin/add-menu')}>
+            <ListItemText primary="Add Menu" />
+          </ListItem>
+          <ListItem button onClick={Logout}>
+            <ListItemText primary="Logout" />
+          </ListItem>
+        </List>
+      </Drawer>
 
-        <h1 className=' text-4x' >SELECT MENU</h1>
-      </div>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          marginLeft: isMobile ? 0 : '250px',
+          padding: '16px',
+          bgcolor: 'background.default',
+        }}
+      >
+        <Button
+          aria-controls={isDrawerOpen ? 'menu' : undefined}
+          aria-haspopup="true"
+          onClick={toggleDrawer(true)}
+          variant="contained"
+          color="primary"
+          startIcon={<MenuIcon />}
+          sx={{
+            display: isMobile ? 'block' : 'none',
+            marginBottom: '20px',
+          }}
+        >
+          Menu
+        </Button>
+        <Typography variant="h4" gutterBottom>
+          Admin Home
+        </Typography>
+        <Paper
+          sx={{
+            padding: '16px',
+            marginBottom: '20px',
+            boxShadow: 3,
+            backgroundColor: 'background.paper',
+          }}
+        >
+          <Typography variant="h6" gutterBottom>
+            Welcome to the Admin Dashboard
+          </Typography>
+          <Typography variant="body1" paragraph>
+            As an admin, you have full control over the management of the food menu. Use the sidebar to navigate to different sections where you can:
+          </Typography>
+          <ul>
+            <li>
+              <Typography variant="body1">
+                <strong>Add Category:</strong> Define new categories for the menu items.
+              </Typography>
+            </li>
+            <li>
+              <Typography variant="body1">
+                <strong>Add Menu:</strong> Add new items to the menu including their details.
+              </Typography>
+            </li>
+          </ul>
+          <Typography variant="body1" paragraph>
+            You can also log out using the button in the menu. Make sure to save any changes before logging out.
+          </Typography>
+        </Paper>
+        <div>
+          <Outlet />
+        </div>
+      </Box>
     </div>
   );
 }

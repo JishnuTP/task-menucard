@@ -19,7 +19,7 @@ const LandingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            Welcome to DEEP NET SOFT
+            Welcome to Menu - Listing
           </motion.h1>
           <motion.p
             className="text-xl mb-8"
@@ -27,7 +27,7 @@ const LandingPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
           >
-            Your gateway to innovative software solutions.
+            Please take a look at our menu featuring food, drinks, and brunch.
           </motion.p>
           <Link to="/menu">
             <motion.button
