@@ -21,7 +21,7 @@ const Headers = () => {
                 </div>
                 <nav className="hidden md:flex text-1x  space-x-8 fontfamily-Oswald">
                     <Link to="/" className="text-white mt-2 hover:text-blue-600">Home</Link>
-                    <Link to="/admin" className="text-white mt-2 hover:text-blue-600">Menu</Link>
+                    <Link to="/admin" className="text-white mt-2 hover:text-blue-600">ADMIN- PAGE</Link>
                     <Link to="/services" className="text-white mt-2 hover:text-blue-600">Make a Reservation</Link>
                     <Link to="/contact" className="text-white mt-2 hover:text-blue-600">Contact</Link>
                 </nav>
@@ -36,7 +36,7 @@ const Headers = () => {
             {isOpen && (
                 <nav className="md:hidden bg-black p-4">
                     <Link to="/" className="block text-white mb-2 mt-2">Home</Link>
-                    <Link to="/admin" className="block text-white mb-2 mt-2">Menu</Link>
+                    <Link to="/admin" className="block text-white mb-2 mt-2">ADMIN PAGE</Link>
                   
                     <Link to="/contact" className="block text-white mt-2">Contact</Link>
                 </nav>
