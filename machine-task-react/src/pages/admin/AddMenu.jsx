@@ -27,7 +27,7 @@ const AdminAddMenu = () => {
         return;
       }
       try {
-        const response = await axios.post('http://localhost:5000/api/items/addflavor', {
+        const response = await axios.post('https://task-menucard-api.vercel.app/api/items/addflavor', {
           flavor: newFlavor.trim(),
           hookahName: title // Assuming title is used as hookah name
         });
@@ -47,7 +47,7 @@ const AdminAddMenu = () => {
         return;
       }
       try {
-        const response = await axios.post('http://localhost:5000/api/items/additems', {
+        const response = await axios.post('https://task-menucard-api.vercel.app/api/items/additems', {
           title,
           description,
           price,
