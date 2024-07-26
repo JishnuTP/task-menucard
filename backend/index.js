@@ -9,7 +9,8 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-//
+app.options('*', cors()); // Enable preflight requests for all routes
+
 // Middleware
 app.use(cors({
     origin: ["http://task-menucard-frontend.vercel.app"], // Allow only this origin
