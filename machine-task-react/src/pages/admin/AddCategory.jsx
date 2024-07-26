@@ -14,7 +14,7 @@ function AddCategory() {
 
     try {
       // Post the new category to the server
-      await axios.post('https://task-menucard-api.vercel.app/api/items/addcategories', { name: categoryName });
+      await axios.post('https://task-menucard-api.vercel.app/addcategories', { name: categoryName });
 
       // Refetch categories from the server
       await fetchCategories();
