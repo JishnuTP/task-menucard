@@ -17,6 +17,10 @@ app.use(cors({
 }));
 app.use(express.json());
 
+app.get("/",(req,res)=>{
+    res.json("hello")
+})
+
 // Routes
 app.use('/api/items', itemRoutes);
 
