@@ -3,7 +3,6 @@ const cors = require('cors');
 const connectDB = require('./config/db'); // Adjust path as needed
 const itemRoutes = require('./routes/items'); // Adjust path as needed
 require('dotenv').config();
-const Category = require('../backend/model/category');
 
 const app = express();
 
@@ -24,18 +23,6 @@ app.get("/", (req, res) => {
     res.json("hello");
 });
 
-app.post('/addcategories', async (req, res) => {
-
-    const { name} = req.body;
-  
-    try {
-      const newcategory= new Category({ name });
-      const category = await newcategory.save();
-      res.json(category);
-    } catch (err) {
-      res.status(500).json({ msg: err.message });
-    }
-  });
 // API Routes
 app.use('/api/items', itemRoutes);
 
