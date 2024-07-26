@@ -12,7 +12,7 @@ connectDB();
 // Middlew
 // Middleware
 app.use(cors({
-    origin: ["https://task-menucard-frontend.vercel.app/"], // Allow only this origin
+    origin: ["https://task-menucard-frontend.vercel.app"], // Allow only this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow these HTTP methods
     credentials: true // Allow credentials if needed
   }));
