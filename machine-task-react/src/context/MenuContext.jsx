@@ -14,7 +14,7 @@ const MenuProvider = ({ children }) => {
   // Fetch categories from the server
   const fetchCategories = async () => {
     try {
-      const response = await axios.get('https://task-menucard-api.vercel.app/api/items/categories',  {
+      const response = await axios.get('http://task-menucard-api.vercel.app/api/items/categories',  {
         headers: {
           'Content-Type': 'application/json',
           // Include credentials if needed
@@ -30,12 +30,12 @@ const MenuProvider = ({ children }) => {
   // Fetch menu items from the server
   const fetchMenuItems = async () => {
     try {
-      const response = await axios.get('https://task-menucard-api.vercel.app/api/items/menuitems' ,{
+      const response = await axios.get('http://task-menucard-api.vercel.app/api/items/menuitems' ,{
         headers: {
           'Content-Type': 'application/json',
           // Include credentials if needed
         },
-        withCredentials: true // Important for handling cookies or authentication headers
+        Credentials: true // Important for handling cookies or authentication headers
       });
       setMenuItems(response.data);
     } catch (err) {
