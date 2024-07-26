@@ -9,11 +9,10 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-app.options('*', cors()); // Enable preflight requests for all routes
-
+// Middlew
 // Middleware
 app.use(cors({
-    origin: ["http://task-menucard-frontend.vercel.app"], // Allow only this origin
+    origin: ["https://task-menucard-frontend.vercel.app/"], // Allow only this origin
     methods: ["GET", "POST", "PUT", "DELETE"], // Allow these HTTP methods
     credentials: true // Allow credentials if needed
   }));
@@ -25,7 +24,7 @@ app.get("/", (req, res) => {
 });
 
 // API Routes
-app.use("/", itemRoutes);
+app.use('api/items', itemRoutes);
 
 const PORT = process.env.PORT || 5000;
 
