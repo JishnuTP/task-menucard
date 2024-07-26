@@ -21,7 +21,7 @@ const Headers = () => {
                 </div>
                 <nav className="hidden md:flex text-1x  space-x-8 fontfamily-Oswald">
                     <Link to="/" className="text-white mt-2 hover:text-blue-600">Home</Link>
-                    <Link to="/about" className="text-white mt-2 hover:text-blue-600">Menu</Link>
+                    <Link to="/admin" className="text-white mt-2 hover:text-blue-600">Menu</Link>
                     <Link to="/services" className="text-white mt-2 hover:text-blue-600">Make a Reservation</Link>
                     <Link to="/contact" className="text-white mt-2 hover:text-blue-600">Contact</Link>
                 </nav>
