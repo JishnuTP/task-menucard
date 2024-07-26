@@ -36,7 +36,7 @@ const Headers = () => {
             {isOpen && (
                 <nav className="md:hidden bg-black p-4">
                     <Link to="/" className="block text-white mb-2 mt-2">Home</Link>
-                    <Link to="/about" className="block text-white mb-2 mt-2">Menu</Link>
+                    <Link to="/admin" className="block text-white mb-2 mt-2">Menu</Link>
                   
                     <Link to="/contact" className="block text-white mt-2">Contact</Link>
                 </nav>
