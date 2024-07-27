@@ -7,7 +7,7 @@ const BrunchCocktailCard = () => {
   const { menuItems, loading, error } = useContext(MenuContext);
 
   // Filter items to show only cocktails
-  const cocktails = menuItems.filter(item => item.category.toLowerCase() === 'cocktail');
+  const cocktails = menuItems.filter(item => item.category.toLowerCase() === 'COCKTAILS');
 
   // Show only the first 15 items
   const displayedItems = cocktails.slice(0, 15);
