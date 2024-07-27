@@ -23,12 +23,12 @@ const DrinkCard = () => {
         <div className="relative border border-white p-6 bg-black rounded-lg shadow-lg w-full max-w-5xl text-white">
           {/* Top images */}
           <img
-            src="../public/img.png" // Replace with actual left image URL
+            src=".https://img.pikbest.com/origin/09/21/28/27UpIkbEsTxqP.png!w700wp" // Replace with actual left image URL
             alt="Left"
             className="absolute top-0 left-0 w-24 h-24 -mt-8 ml-4"
           />
           <img
-            src="../public/img.png" // Replace with actual right image URL
+            src="https://img.pikbest.com/origin/09/21/28/27UpIkbEsTxqP.png!w700wp" // Replace with actual right image URL
             alt="Right"
             className="absolute top-0 right-0 w-24 h-246 -mt-8 mr-4"
           />

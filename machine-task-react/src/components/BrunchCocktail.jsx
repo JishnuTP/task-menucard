@@ -23,7 +23,7 @@ const BrunchCocktailCard = () => {
         <div className="relative border-2 border-white p-6 bg-black rounded-lg shadow-lg w-full max-w-5xl text-white">
           {/* Top image */}
           <img
-            src="../public/img.png"
+            src="https://img.pikbest.com/origin/09/21/28/27UpIkbEsTxqP.png!w700wp"
             alt="Top"
             className="absolute top-0 left-0 w-20 h-20 -mt-8 ml-4"
           />
@@ -75,7 +75,7 @@ const BrunchCocktailCard = () => {
           {/* Bottom image with overlap */}
           <div className="absolute bottom-0 right-0 mb-[-1rem] mr-[-1rem] z-10">
             <img
-              src="../public/img.png"
+              src="https://img.pikbest.com/origin/09/21/28/27UpIkbEsTxqP.png!w700wp"
               alt="Bottom"
               className="w-24 h-24 rounded border-2 border-transparent hover:border-white transition-colors duration-300 ease-in-out"
             />
